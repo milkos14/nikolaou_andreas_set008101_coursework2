@@ -1,0 +1,31 @@
+doctype
+html
+	head
+		title Blog 
+		link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+	body 
+	nav.navbar.navbar
+	
+		.container
+			a.btn.btn-sm.btn-outline-secondary(href='/articles/add') Add article
+			a.btn.btn-sm.btn-outline-secondary(href='/user/register') Sign up
+			a.btn.btn-sm.btn-outline-secondary(href='/user/login') Log in			
+			.navbar-header
+				button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+				a.navbar-brand(href='/') Blog
+					#navbar.collapse.navbar-collapse
+					ul.nav.navbar-nav
+						li
+							a(href='/') Home
+			.container
+				!= messages('message', locals)
+				if errors
+					each error, i in errors
+						div(class="alert alert-danger") #{error.msg}
+				block content
+				br
+				hr
+			script(src='/js/main.js')
+			
+				
+				
